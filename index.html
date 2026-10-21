@@ -1210,6 +1210,17 @@ button,a.btn{touch-action:manipulation}
  .ptitle{display:block;font:500 34px/1.05 'Cormorant Garamond','Cormorant',Georgia,serif;letter-spacing:.02em;color:var(--tx);margin:8px 2px 14px}
  input,select,textarea{font-size:16px}
 }
+
+/* ровные поля в формах */
+.g2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:end}
+.g2>*{min-width:0}
+.g2 label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+input,select,textarea{max-width:100%;min-width:0;box-sizing:border-box}
+input:not([type=checkbox]):not([type=radio]),select{width:100%;height:46px;line-height:normal}
+input[type=date],input[type=time]{display:block;-webkit-appearance:none;appearance:none;text-align:left}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left;margin:0}
+.addl>input,.addl>select{flex:1 1 0}
+.addl>.btn{flex:none}
 </style>
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="HostList">
 </head>
