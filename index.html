@@ -11,6 +11,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Forum&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style id="th-common">
+.banner.bk{display:flex;align-items:center;gap:10px}
+.banner.bk span{flex:1;min-width:0;cursor:pointer}
+.banner.bk .btn.s{flex:none}
+.autos{margin-top:8px;font-size:12.5px;color:var(--ok)}
+.adv{margin-top:14px;border-top:1px solid var(--hair,var(--line));padding-top:10px}
+.adv summary{cursor:pointer;color:var(--mut);font-size:12.5px;margin-bottom:8px}
+.adv textarea{margin-top:8px}
+.ract{display:flex;gap:8px;margin-top:12px}
+.ract .btn{flex:1}
+.fpick{display:inline-flex!important;align-items:center;position:relative;overflow:hidden;cursor:pointer;margin:0}
+.fpick input{position:absolute;inset:0;opacity:0;cursor:pointer;height:100%!important}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:100;display:flex;align-items:center;gap:14px;max-width:calc(100vw - 32px);padding:11px 12px 11px 16px;border-radius:14px;background:var(--pri);color:var(--priTx);font:600 13px/1.3 'Manrope',sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.35);transition:transform .3s ease}
+#toast.show{transform:translate(-50%,0)}
+#toast span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#toast button{flex:none;border:0;border-radius:99px;padding:7px 12px;background:rgba(0,0,0,.18);color:inherit;font:700 12px/1 'Manrope',sans-serif;cursor:pointer}
+@media (max-width:719px){#toast{bottom:calc(100px + env(safe-area-inset-bottom,0px))}}
+
 .fnote{margin:18px 4px 6px;font-size:11px;line-height:1.45;color:var(--mut);text-align:center}
 
 .ntg{margin:12px 0 2px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
@@ -1245,7 +1262,7 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 <div class="hc"><span>event planner</span><svg viewBox="0 0 34 20"><ellipse cx="17" cy="10" rx="15" ry="8.5"/><ellipse cx="17" cy="10" rx="6" ry="8.5"/><path d="M2 10h30M4.5 5.5h25M4.5 14.5h25"/></svg><span data-sub></span></div>
 <h1>HostList</h1>
 <div class="tag">Ведущий · каждый момент на своём месте</div>
-<div class="fine">мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · съёмки · бюджет · монтаж · заметки · календарь · договоры · предоплаты · тайминг · техника · дедлайны</div>
+<div class="fine">мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · заметки · календарь · договоры · предоплаты · тайминг · сборы · ответы</div>
 <div class="hs" data-hs></div>
 <div class="htop"><button class="pill" onclick="toggleData()">Данные</button></div>
 </header>
@@ -1259,7 +1276,7 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 <div class="hc"><span>ведущий</span><svg viewBox="0 0 34 20"><ellipse cx="17" cy="10" rx="15" ry="8.5"/><ellipse cx="17" cy="10" rx="6" ry="8.5"/><path d="M2 10h30M4.5 5.5h25M4.5 14.5h25"/></svg><span data-sub></span></div>
 <h1><span class="l1">Event</span><span class="l2">HostList</span><span class="l3">planner</span></h1>
 <div class="tag">каждый момент на своём месте</div>
-<div class="fine">мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · съёмки · бюджет · монтаж · заметки · календарь · договоры · предоплаты · тайминг · техника · дедлайны</div>
+<div class="fine">мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · ответы · календарь · договоры · предоплаты · тайминг · сценарии · сборы · статистика · мероприятия · бюджет · отправка · заметки · календарь · договоры · предоплаты · тайминг · сборы · ответы</div>
 <div class="hs" data-hs></div>
 <div class="htop"><button class="pill" onclick="toggleData()">Данные</button></div>
 </header>
@@ -1288,7 +1305,7 @@ var KEY='hostlist_v1', S={projects:[],expenses:[],notes:[],cur:'₽'}, tab='cal'
 var opened={};function tgSec(k){opened[k]=!opened[k];render()}
 function sect(k,title,small,body){var on=!!opened[k];return '<div class="card"><button class="sech" aria-expanded="'+on+'" onclick="tgSec(\''+k+'\')"><span class="sec">'+title+'<small>'+small+'</small></span><span class="chev">'+(on?'Свернуть':'Раскрыть')+'</span></button>'+(on?'<div class="secb">'+body+'</div>':'')+'</div>'}
 var sendAll=false, rpId='', rq='', rcat='', rEdit=null, rForm=false, copied=null, copyFb=null;
-try{var raw=localStorage.getItem(KEY);if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
+var hadLocal=false;try{var raw=localStorage.getItem(KEY);if(raw){S=Object.assign(S,JSON.parse(raw));hadLocal=true}}catch(e){}
 var TPL={'Свадьба':['Договор подписан','Предоплата получена','Встреча с парой','Анкета пары заполнена','Сценарий согласован','Созвон с диджеем и подрядчиками','Реквизит и призы готовы','Мероприятие','Отзыв получен'],'Корпоратив':['Бриф от заказчика','Договор подписан','Предоплата получена','Сценарий согласован','Созвон с площадкой и агентством','Реквизит и призы готовы','Мероприятие','Закрывающие документы'],'Юбилей':['Договор подписан','Предоплата получена','Встреча с семьёй юбиляра','Анкета о юбиляре','Поздравления гостей собраны','Сценарий согласован','Мероприятие','Отзыв получен'],'День рождения':['Договор подписан','Предоплата получена','Знакомство с именинником','Анкета заполнена','Сценарий согласован','Реквизит готов','Мероприятие','Отзыв получен'],'Выпускной':['Договор подписан','Предоплата получена','Встреча с родительским комитетом','Номинации и грамоты','Сценарий согласован','Мероприятие','Отзыв получен'],'Детский праздник':['Договор подписан','Предоплата получена','Анкета об имениннике','Игры и программа','Реквизит готов','Мероприятие','Отзыв получен'],'Другое':['Договор подписан','Предоплата получена','Сценарий согласован','Мероприятие','Отзыв получен']};
 var SENDS={'Свадьба':['Договор','Реквизиты на предоплату','Анкета для пары','Черновик сценария паре','Тайминг организатору','Плейлист и тайминг диджею','Финальный сценарий','Благодарность и просьба об отзыве'],'Корпоратив':['Коммерческое предложение','Договор','Счёт на предоплату','Черновик сценария заказчику','Тайминг площадке и подрядчикам','Техрайдер: микрофоны и звук','Финальный сценарий','Закрывающие документы (акт)'],'Детский праздник':['Договор','Реквизиты на предоплату','Анкета об имениннике','Программа родителям','Список того, что подготовить родителям','Финальный тайминг','Благодарность и просьба об отзыве'],'Другое':['Договор','Реквизиты на предоплату','Анкета','Черновик сценария','Тайминг подрядчикам','Финальный сценарий','Благодарность и просьба об отзыве']};
 var GEAR=['Костюм / образ','Запасная рубашка или платье','Сценарий распечатан','Тайминг на руках','Радиомикрофон и запасной','Батарейки и зарядка','Реквизит для интерактивов','Призы и подарки','Флешка с музыкой','Вода и леденцы для голоса'];
@@ -1304,7 +1321,8 @@ function applyTheme(t){theme=t;document.querySelectorAll('style[data-th]').forEa
 function setTheme(t){applyTheme(t);render()}
 function toggleTheme(){showTheme=!showTheme;render();if(showTheme)window.scrollTo(0,0)}
 function themePanel(){return '<div class="card"><div class="row"><b>Оформление</b><button class="btn s" onclick="toggleTheme()">Готово</button></div><div class="mut" style="margin-top:4px">Выбор сохраняется на этом устройстве. Данные во всех темах одни и те же.</div><div class="thp">'+THEMES.map(function(x){return '<button class="tho'+(x[0]===theme?' on':'')+'" style="--sw:'+x[3]+'" onclick="setTheme(\''+x[0]+'\')"><i></i><span>'+x[1]+'</span><small>'+x[2]+'</small></button>'}).join('')+'</div></div>'}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function save(){var j=JSON.stringify(S);try{localStorage.setItem(KEY,j)}catch(e){}
+  clearTimeout(mirT);mirT=setTimeout(function(){try{fput('__state__',new Blob([j],{type:'application/json'})).catch(function(){})}catch(e){}},400)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function money(n){return Number(n||0).toLocaleString('ru-RU')+' '+S.cur}
@@ -1347,7 +1365,7 @@ function dleft(ds){var a=ds.split('-'),t=new Date(+a[0],+a[1]-1,+a[2]),n=new Dat
 function when(n){return n===0?'сегодня':n===1?'завтра':'через '+n+' дн.'}
 function dlOpen(p){return p.deadline&&left(p)>0}
 function dlAlerts(){return S.projects.filter(function(p){if(!dlOpen(p))return false;var n=dleft(p.deadline),w=p.dwarn==null?3:+p.dwarn;return w>0&&n<=w}).sort(function(a,b){return a.deadline.localeCompare(b.deadline)}).map(function(p){var n=dleft(p.deadline);return '<div class="banner alert" onclick="openP(\''+p.id+'\')">'+(n<0?'Отправка просрочена на '+(-n)+' дн.':'Отправить всё '+when(n))+': '+esc(p.names||'Проект')+'<small>до '+fd(p.deadline)+' · осталось '+left(p)+' из '+(p.sends||[]).length+'</small></div>'}).join('')}
-function alerts(){return dlAlerts()+S.projects.filter(function(p){if(!p.date)return false;var n=dleft(p.date),w=p.warn==null?3:+p.warn;return w>0&&n>=0&&n<=w}).sort(function(a,b){return a.date.localeCompare(b.date)}).map(function(p){return '<div class="banner alert" onclick="goto(\''+p.date+'\');setTab(\'cal\')">Мероприятие '+when(dleft(p.date))+': '+esc(p.names||'Проект')+'<small>'+fd(p.date)+(p.time?' · '+esc(p.time):'')+' · '+esc(p.type||'Мероприятие')+(p.place?' · '+esc(p.place):'')+'</small></div>'}).join('')}
+function alerts(){return bkAlert()+dlAlerts()+S.projects.filter(function(p){if(!p.date)return false;var n=dleft(p.date),w=p.warn==null?3:+p.warn;return w>0&&n>=0&&n<=w}).sort(function(a,b){return a.date.localeCompare(b.date)}).map(function(p){return '<div class="banner alert" onclick="goto(\''+p.date+'\');setTab(\'cal\')">Мероприятие '+when(dleft(p.date))+': '+esc(p.names||'Проект')+'<small>'+fd(p.date)+(p.time?' · '+esc(p.time):'')+' · '+esc(p.type||'Мероприятие')+(p.place?' · '+esc(p.place):'')+'</small></div>'}).join('')}
 function ymd(s){return s.split('-').join('')}
 function nextD(s){var a=s.split('-'),d=new Date(+a[0],+a[1]-1,+a[2]+1);return d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)}
 var BS=String.fromCharCode(92),NL=String.fromCharCode(10);
@@ -1562,9 +1580,40 @@ function undoDel(){if(!undoP)return;S.projects.splice(Math.min(undoP.i,S.project
 function delP(id){if(armed!==id){armed=id;render();return}armed=null;S.projects=S.projects.filter(function(p){return p.id!==id});save();render()}
 function setQ(val){fq=val;render();var e=document.getElementById('f_q');e.focus();e.setSelectionRange(val.length,val.length)}
 function toggleData(){showData=!showData;dmsg='';render()}
-function dataPanel(){return '<div class="card"><b>Сохранение и перенос</b><div class="mut" style="margin:4px 0 8px">Скопируйте код и вставьте его на другом устройстве в поле ниже.</div><textarea id="d_o" rows="3" readonly>'+esc(JSON.stringify(S))+'</textarea><button class="btn full" onclick="copyData()">Скопировать данные</button><textarea id="d_i" rows="3" placeholder="Вставьте сюда код с другого устройства" style="margin-top:10px"></textarea><button class="btn full" onclick="importData()">Загрузить (заменит текущие данные)</button><div class="mut" style="margin-top:8px">'+esc(dmsg)+'</div></div>'}
-function copyData(){var el=document.getElementById('d_o');el.select();var t=el.value;function ok(){dmsg='Скопировано';render()}function fb(){try{document.execCommand('copy');ok()}catch(x){dmsg='Выделите текст в поле и скопируйте вручную';render()}}try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}}
-function importData(){var t=v('d_i').trim();if(!t)return;try{var d=JSON.parse(t);if(!d||!Array.isArray(d.projects))throw 0;S=Object.assign({projects:[],expenses:[],notes:[],cur:'₽'},d);migrate();save();showData=false;dmsg='';render()}catch(e){dmsg='Не удалось прочитать код';render()}}
+/* хранилище: IndexedDB, копии, восстановление */
+var _db=null,toastT=null,preImport=null,mirT=null;
+function idb(){return new Promise(function(res,rej){if(_db)return res(_db);try{var r=indexedDB.open('hostlist-files',1);r.onupgradeneeded=function(){r.result.createObjectStore('files')};r.onsuccess=function(){_db=r.result;res(_db)};r.onerror=function(){rej(r.error)}}catch(e){rej(e)}})}
+function fput(id,blob){return idb().then(function(db){return new Promise(function(res,rej){var t=db.transaction('files','readwrite');t.objectStore('files').put(blob,id);t.oncomplete=function(){res()};t.onerror=function(){rej(t.error)}})})}
+function fget(id){return idb().then(function(db){return new Promise(function(res,rej){var q=db.transaction('files').objectStore('files').get(id);q.onsuccess=function(){res(q.result)};q.onerror=function(){rej(q.error)}})})}
+function fsz(n){return n>1048576?(n/1048576).toFixed(1)+' МБ':Math.max(1,Math.round(n/1024))+' КБ'}
+function toast(msg,act,fn){var t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';document.body.appendChild(t)}
+  t.innerHTML='<span></span><button></button>';t.firstChild.textContent=msg;t.lastChild.textContent=act;t.lastChild.onclick=fn;t.className='show';clearTimeout(toastT);toastT=setTimeout(hideToast,6000)}
+function hideToast(){var t=document.getElementById('toast');if(t)t.className=''}
+function copyText(t){return new Promise(function(res){function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove();res()}try{navigator.clipboard.writeText(t).then(res,fb)}catch(e){fb()}})}
+function bkAlert(){if(!S.projects.length)return '';var last=+S.lastBackup||0,days=Math.floor((Date.now()-last)/864e5),snooze=+S.bkSnooze||0;
+  if(last&&days<7)return '';if(Date.now()<snooze)return '';
+  return '<div class="banner alert bk"><span onclick="showData=true;render();window.scrollTo(0,0)">Сделай резервную копию<small>'+(last?'последняя '+days+' дн. назад':'копий ещё не было')+' · данные хранятся только на этом устройстве</small></span><button class="btn s" onclick="S.bkSnooze=Date.now()+3*864e5;save();render()">Позже</button></div>'}
+function dataPanel(){return '<div class="card"><div class="row"><b>Перенос и копия</b><button class="btn s" onclick="toggleData()">Готово</button></div>'
+ +'<div class="autos">✓ Все изменения сохраняются автоматически на этом устройстве'+(S.lastBackup?'. Последняя копия в файл: '+new Date(S.lastBackup).toLocaleDateString('ru-RU'):'')+'</div><div class="mut" style="margin:6px 0 12px">Сохрани копию в файл и отправь её на другое устройство (AirDrop, Telegram, почта). Там нажми «Загрузить из файла». В копию входят мероприятия, оплаты, заметки, ответы и настройки.</div>'
+ +'<div class="ract" style="margin-top:0"><button class="btn" onclick="exportFile()">Сохранить копию в файл</button><label class="btn s fpick" style="flex:1;justify-content:center">Загрузить из файла<input type="file" accept=".json,application/json" onchange="importFile(this)"></label></div>'
+ +'<details class="adv"><summary>Перенос кодом (без файлов)</summary><textarea id="d_o" rows="3" readonly>'+esc(JSON.stringify(S))+'</textarea><button class="btn s full" onclick="copyData()">Скопировать код</button><textarea id="d_i" rows="3" placeholder="Вставьте сюда код с другого устройства" style="margin-top:10px"></textarea><button class="btn s full" onclick="importData()">Загрузить код (заменит текущие данные)</button></details>'
+ +'<div class="mut" style="margin-top:8px">'+esc(dmsg)+'</div></div>'}
+function copyData(){copyText(document.getElementById('d_o').value).then(function(){dmsg='Код скопирован';render()})}
+function importData(){var t=v('d_i').trim();if(!t)return;try{var d=JSON.parse(t);if(d&&d.app==='HostList'&&d.S)d=d.S;if(!d||!Array.isArray(d.projects))throw 0;applyImport(d)}catch(e){dmsg='Не удалось прочитать код';render()}}
+function exportFile(){
+  var n=new Date(),stamp=n.getFullYear()+'-'+('0'+(n.getMonth()+1)).slice(-2)+'-'+('0'+n.getDate()).slice(-2)+'_'+('0'+n.getHours()).slice(-2)+('0'+n.getMinutes()).slice(-2);
+  var name='HostList-backup-'+stamp+'.json',json=JSON.stringify({app:'HostList',v:2,saved:n.toISOString(),S:S});
+  var file=new File([json],name,{type:'application/json'});
+  var mobile=/iPhone|iPad|Android/i.test(navigator.userAgent);
+  if(mobile&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'Копия HostList'}).then(function(){S.lastBackup=Date.now();save();dmsg='Копия отправлена';render()}).catch(function(){dmsg='';render()});return}
+  var u=URL.createObjectURL(file),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},60000);
+  S.lastBackup=Date.now();save();dmsg='Файл сохранён: '+name+' ('+fsz(json.length)+')';render()}
+function importFile(inp){var f=inp.files&&inp.files[0];if(!f)return;var r=new FileReader();
+  r.onload=function(){try{var d=JSON.parse(r.result),data=d&&d.app==='HostList'&&d.S?d.S:d;if(!data||!Array.isArray(data.projects))throw 0;applyImport(data)}catch(e){dmsg='Это не файл копии HostList';render()}};
+  r.readAsText(f)}
+function applyImport(data){preImport=JSON.stringify(S);S=Object.assign({projects:[],expenses:[],notes:[],cur:'₽'},data);migrate();save();showData=false;dmsg='';openId=null;render();
+  toast('Данные загружены: мероприятий '+S.projects.length,'Вернуть как было',undoImport)}
+function undoImport(){if(!preImport)return;S=JSON.parse(preImport);preImport=null;migrate();save();render();hideToast()}
 
 /* Бюджет */
 /* налоги и агентская комиссия */
@@ -1730,6 +1779,14 @@ function addNote(){var t=v('n_t').trim();if(!t)return;S.notes.push({id:uid(),dat
 function delN(id){S.notes=S.notes.filter(function(n){return n.id!==id});save();render()}
 
 migrate();applyTheme(theme);render();
+/* автосохранение: защищённое хранилище + запасная копия + восстановление */
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persisted().then(function(p){if(!p)navigator.storage.persist()})}catch(e){}
+(function(){try{fget('__state__').then(function(b){if(!b)return b;return b.text()}).then(function(t){
+  if(!t){if(S.projects.length)save();return}
+  var d=JSON.parse(t);
+  if(!hadLocal&&d&&Array.isArray(d.projects)&&d.projects.length){S=Object.assign({projects:[],expenses:[],notes:[],cur:'₽'},d);migrate();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}render();toast('Данные восстановлены из запасной копии','Ок',hideToast)}
+  else if(S.projects.length)save()}).catch(function(){})}catch(e){}})();
+
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
 </script>
 
