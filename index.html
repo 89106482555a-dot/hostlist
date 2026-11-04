@@ -11,6 +11,47 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Forum&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style id="th-common">
+
+/* вставка мероприятия кодом */
+.npr{flex-wrap:wrap}.npr>.btn:first-child{flex:1 1 100%}
+.npr .pst,.npr .fpick{flex:1 1 0!important;display:inline-flex!important;align-items:center;justify-content:center;gap:6px;padding:9px 14px;min-height:40px}
+.npr .pst svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#pstm{position:fixed;inset:0;z-index:260;display:none}
+#pstm.show{display:block}
+#pstm .pwb{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+#pstm .pwc{position:absolute;left:50%;top:18%;transform:translateX(-50%);width:min(380px,calc(100vw - 32px));margin:0;background:var(--bg);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#pstm textarea{min-height:110px;font-size:14px}
+
+/* обучение */
+#tour{position:fixed;inset:0;z-index:250;display:none}
+#tour.show{display:block}
+#tour .tp{position:absolute;display:block;background:rgba(10,10,10,.42);backdrop-filter:blur(6px) saturate(.9);-webkit-backdrop-filter:blur(6px) saturate(.9)}
+#tour .tring{position:absolute;display:block;border-radius:18px;box-shadow:0 0 0 2px var(--ac,#fff),0 0 0 7px rgba(255,255,255,.14),0 0 30px rgba(255,255,255,.18);pointer-events:none;animation:tpls 1.8s ease-in-out infinite}
+@keyframes tpls{50%{box-shadow:0 0 0 2px var(--ac,#fff),0 0 0 11px rgba(255,255,255,.06),0 0 30px rgba(255,255,255,.12)}}
+.tcard{position:absolute;padding:16px 16px 12px;border-radius:20px;background:var(--bg);color:var(--tx);box-shadow:0 18px 50px rgba(0,0,0,.45);border:1px solid var(--hair,var(--line));text-transform:none;letter-spacing:0}
+.tcard.mid{left:50%;top:50%;transform:translate(-50%,-50%);width:min(340px,calc(100vw - 32px));text-align:center}
+.tcard.down:before,.tcard.up:after{content:"";position:absolute;left:calc(var(--ax) - 8px);width:16px;height:16px;background:var(--bg);transform:rotate(45deg);border:1px solid var(--hair,var(--line))}
+.tcard.down:before{top:-8px;border-right:0;border-bottom:0}
+.tcard.up:after{bottom:-8px;border-left:0;border-top:0}
+.tlogo{font-size:34px;font-weight:800;letter-spacing:-.04em;color:var(--ac,var(--tx));margin-bottom:6px}
+.tt{font-size:17px;font-weight:800;line-height:1.2;font-family:'Manrope',sans-serif}
+.tx{font-size:14px;line-height:1.45;color:var(--mut);margin-top:6px;font-family:'Manrope',sans-serif}
+.tdots{display:flex;gap:5px;margin-top:12px}.tcard.mid .tdots{justify-content:center}
+.tdots b{width:6px;height:6px;border-radius:3px;background:var(--hair,var(--line));transition:width .2s}
+.tdots b.on{width:18px;background:var(--ac,var(--tx))}
+.tbtn{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}
+.tcard.mid .tbtn{justify-content:center}
+.tbk{display:flex;gap:6px}
+.tsk,.tnx{border:0;border-radius:99px;padding:10px 16px;font:600 14px/1 'Manrope',sans-serif;cursor:pointer;letter-spacing:0;text-transform:none}
+.tsk{background:transparent;color:var(--mut)}
+.tnx{background:var(--pri);color:var(--priTx)}
+.tsw{display:flex;align-items:center;justify-content:center;gap:12px;margin:2px 0 10px;color:var(--ac,var(--tx));font-size:22px}
+.tsw i{width:46px;height:46px;border-radius:50%;background:var(--soft,rgba(255,255,255,.1));box-shadow:inset 0 0 0 2px var(--ac,var(--tx));animation:tswp 1.6s ease-in-out infinite}
+@keyframes tswp{0%,100%{transform:translateX(-14px)}50%{transform:translateX(14px)}}
+html.touring body{overflow:hidden}
+.svt.pill.wide{min-height:58px}
+.svg{grid-template-areas:"a a s1 s2" "a a l1 l2" "p p q q" "r r r r"!important}
+
 .pseg{margin:0 0 10px}
 .pcard.past{opacity:1}
 .tapc{cursor:pointer}
@@ -1464,7 +1505,7 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 <div id="view"></div>
 </div></div>
 <script>
-var APPV='5 ноября 2026';var KEY='hostlist_v1', S={projects:[],expenses:[],notes:[],cur:'₽'}, tab='cal', editId=null, showForm=false, preDate='', fq='', fs='', ft='', showData=false, dmsg='', armed=null, calView='month', openId=null, gearEdit=false, statY=new Date().getFullYear(), statM=-1, selDay=today(), calM=selDay.slice(0,7);
+var APPV='5 ноября 2026 · 3';var KEY='hostlist_v1', S={projects:[],expenses:[],notes:[],cur:'₽'}, tab='cal', editId=null, showForm=false, preDate='', fq='', fs='', ft='', showData=false, dmsg='', armed=null, calView='month', openId=null, gearEdit=false, statY=new Date().getFullYear(), statM=-1, selDay=today(), calM=selDay.slice(0,7);
 var opened={};function tgSec(k){opened[k]=!opened[k];render()}
 function sect(k,title,small,body){var on=!!opened[k];return '<div class="card"><button class="sech" aria-expanded="'+on+'" onclick="tgSec(\''+k+'\')"><span class="sec">'+title+'<small>'+small+'</small></span><span class="chev">'+(on?'Свернуть':'Раскрыть')+'</span></button>'+(on?'<div class="secb">'+body+'</div>':'')+'</div>'}
 var sendAll=false, rpId='', rq='', rcat='', rEdit=null, rForm=false, copied=null, copyFb=null;
@@ -1510,6 +1551,7 @@ function vServices(){
    +'<span class="svl" style="grid-area:l1">Заметки'+(nn?' · '+nn:'')+'</span><span class="svl" style="grid-area:l2">Тема</span>'
    +tile('p','pill','setTab(\'backup\')','<div class="svx"><b>Копия</b><span>'+(days<0?'ещё не было':days===0?'сегодня':days+' дн. назад')+'</span></div>'+ico('backup'))
    +tile('q','pill','setTab(\'security\')','<div class="svx"><b>Код-пароль</b><span>'+(pin?'включён':'выключен')+'</span></div>'+ico('lock'))
+   +tile('r','pill wide','startTour(true)','<div class="svx"><b>Обучение</b><span>Как пользоваться HostList · 1 минута</span></div>'+ico('quiz'))
    +'</div><div class="fnote">HostList · версия '+APPV+'</div>'}
 function vTheme(){return backBtn()+'<div class="svh">Тема</div>'+themePanel()}
 function vBackup(){return backBtn()+'<div class="svh">Копия и перенос</div>'+dataPanel().replace(/^<div class="card"><div class="row">.*?<\/div>/,'<div class="card">')}
@@ -1721,7 +1763,7 @@ function vProjects(){
     +'<div class="g2"><div><label>Гонорар</label><input type="number" id="f_a" value="'+esc(p.amount)+'"></div><div>'+(editId?'<label>Оплачено</label><input disabled value="'+esc(money(p.paid))+' · в карточке">':'<label>Предоплата</label><input type="number" id="f_p" placeholder="0">')+'</div></div>'
     +'<label>Дополнительно (тайминг, пожелания, гости)</label><textarea id="f_x" rows="3">'+esc(p.extra)+'</textarea>'
     +'<div class="row"><button class="btn" onclick="saveProject()">Сохранить</button><button class="btn s" onclick="showForm=false;openId=editId;editId=null;render()">Отмена</button></div></div>';
-  } else h+='<div class="npr"><button class="btn" onclick="showForm=true;editId=null;preDate=\'\';render()">+ Новое мероприятие</button><label class="btn s fpick">Из файла<input type="file" accept=".json,application/json" onchange="importProjInput(this)"></label></div>';
+  } else h+='<div class="npr"><button class="btn" onclick="showForm=true;editId=null;preDate=\'\';render()">+ Новое мероприятие</button><button class="btn s pst" onclick="pasteProj()"><svg viewBox="0 0 24 24"><rect x="6" y="4.5" width="12" height="16" rx="2.5"/><path d="M9.5 4.5V3.5h5v1M9.5 10.5h5M9.5 14h5"/></svg>Вставить</button><label class="btn s fpick">Файл<input type="file" accept=".json,application/json" onchange="importProjInput(this)"></label></div>';
   if(!showForm&&S.projects.length){
     h+='<div class="pf"><div class="pfs"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg><input id="f_q" placeholder="Поиск" value="'+esc(fq)+'" oninput="setQ(this.value)"></div>'
      +'<label class="pfd'+(fdt?' on':'')+'"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>'+(fdt?fd(fdt).slice(0,5):'Дата')+'</span><input type="date" id="f_dt" value="'+esc(fdt)+'" onchange="fdt=this.value;render()"></label>'
@@ -1833,8 +1875,10 @@ function sharePanel(p){
    +'<div class="mut" style="margin-bottom:8px">Всегда передаются: дата, время, место, тип мероприятия, подрядчики, контакты и детали. Отметь, что добавить:</div>'
    +o('sd','Чек-лист отправки')+o('tk','Задачи')+o('gr','Отметки сборов')+o('nt','Заметки на дату мероприятия')
    +o('fin','Финансы','гонорар, оплаты, налог и АК. По умолчанию скрыты')
-   +'<div class="ract"><button class="btn" onclick="shareProjFile(\''+p.id+'\')">Отправить файлом</button><button class="btn s" onclick="shareProjText(\''+p.id+'\')">Отправить текстом</button></div>'
-   +'<div class="mut" style="margin-top:8px">Файл коллега откроет в своём HostList: «Проекты» → «Из файла». Если отправишь это мероприятие ещё раз, у него оно обновится, а не продублируется. Текст подойдёт тем, у кого нет приложения.</div></div>'}
+   +'<button class="btn full" style="margin-top:12px" onclick="shareProjCode(\''+p.id+'\')">Отправить в HostList коллеги</button>'
+   +'<div class="mut" style="margin:6px 0 0">Придёт сообщение с кодом. Коллега копирует его целиком и в HostList нажимает «Проекты» → «Вставить». Работает на iPhone и Android.</div>'
+   +'<div class="ract"><button class="btn s" onclick="shareProjFile(\''+p.id+'\')">Файлом</button><button class="btn s" onclick="shareProjText(\''+p.id+'\')">Текстом без приложения</button></div>'
+   +'<div class="mut" style="margin-top:8px">Если отправишь это мероприятие ещё раз, у коллеги оно обновится, а не продублируется. Файл открывается через «Проекты» → «Файл». «Текстом без приложения» — обычное описание для тех, у кого нет HostList.</div></div>'}
 function projPack(p){
   var c=JSON.parse(JSON.stringify(p)),keep=['names','date','time','hours','place','org','type','status','warn','deadline','dwarn','phone','tg','extra','pack'];
   var out={};keep.forEach(function(k){if(c[k]!=null)out[k]=c[k]});
@@ -1884,6 +1928,27 @@ function resetT(id){(P(id).tasks||[]).forEach(function(t){t.done=false});save();
 function addG(){var t=v('ng').trim();if(!t)return;if(S.gear.indexOf(t)<0)S.gear.push(t);save();render();var e=document.getElementById('ng');if(e)e.focus()}
 function delG(i){if(armed!=='g'+i){armed='g'+i;render();return}armed=null;var g=S.gear[i];S.gear.splice(i,1);S.projects.forEach(function(p){if(p.gearDone)delete p.gearDone[g]});save();render()}
 function addPExp(pid){var a=+v('pe_a');if(!a){toast('Укажи сумму расхода','Ок',hideToast);return}S.expenses.push({id:uid(),title:v('pe_t').trim()||'Расход',amount:a,date:v('pe_d')||today(),pid:pid});save();render();toast('Расход добавлен','Ок',hideToast)}
+
+
+/* мероприятие кодом: отправить текстом, вставить в приложение */
+function u8str(s){return btoa(unescape(encodeURIComponent(s)))}
+function strU8(b){return decodeURIComponent(escape(atob(b)))}
+function projCode(p){return 'HL1:'+u8str(JSON.stringify(projPack(p)))+':HL'}
+function shareProjCode(id){var p=P(id),c=projCode(p);
+  var msg='🎤 '+(p.type||'Мероприятие')+': '+(p.names||'')+(p.date?', '+fd(p.date):'')+'\n\nЧтобы открыть в HostList: скопируй это сообщение целиком, открой HostList → «Проекты» → «Вставить».\n\n'+c;
+  shareText(msg)}
+function readCode(t){var m=String(t||'').replace(/\s+/g,'').match(/HL1:([A-Za-z0-9+/=]+):HL/);if(!m)return null;try{var d=JSON.parse(strU8(m[1]));return d&&d.kind==='project'&&d.p?d:null}catch(e){return null}}
+function pasteProj(){
+  var tryText=function(t){var d=readCode(t);if(d){closePaste();importProjectPack(d);return true}return false};
+  try{if(navigator.clipboard&&navigator.clipboard.readText){navigator.clipboard.readText().then(function(t){if(!tryText(t))openPaste(t?'В скопированном тексте нет кода мероприятия HostList. Скопируй сообщение целиком и попробуй ещё раз, или вставь его сюда.':'')}).catch(function(){openPaste('')});return}}catch(e){}
+  openPaste('')}
+function openPaste(err){var m=document.getElementById('pstm');if(!m){m=document.createElement('div');m.id='pstm';document.body.appendChild(m)}
+  m.innerHTML='<div class="pwb" onclick="closePaste()"></div><div class="pwc card"><b>Вставить мероприятие</b><div class="mut" style="margin:6px 0 10px">Вставь сюда сообщение с кодом мероприятия: нажми в поле и выбери «Вставить».</div>'
+   +'<textarea id="pst_t" placeholder="HL1:…"></textarea><div class="mut" id="pst_e" style="min-height:18px;color:var(--bad)">'+esc(err||'')+'</div>'
+   +'<div class="ract"><button class="btn s" onclick="closePaste()">Отмена</button><button class="btn" onclick="pasteFromBox()">Открыть</button></div></div>';
+  m.className='show';var ta=document.getElementById('pst_t');ta.addEventListener('paste',function(){setTimeout(function(){var d=readCode(ta.value);if(d){closePaste();importProjectPack(d)}},30)});setTimeout(function(){ta.focus()},60)}
+function closePaste(){var m=document.getElementById('pstm');if(m){m.className='';m.innerHTML=''}}
+function pasteFromBox(){var t=v('pst_t'),d=readCode(t);if(!d){document.getElementById('pst_e').textContent='Код не найден. Скопируй сообщение целиком, вместе со строкой HL1:…:HL';return}closePaste();importProjectPack(d)}
 
 /* Статистика */
 function vStats(){
@@ -2151,6 +2216,60 @@ migrate();applyTheme(theme);render();lockScreen();
     var cur=SUB[tab]?'services':tab,i=TORD.indexOf(cur);if(i<0)return;var j=i+(dx<0?1:-1);if(j<0||j>=TORD.length)return;
     var v=document.getElementById('view');setTab(TORD[j]);if(v){v.classList.remove('slL','slR');void v.offsetWidth;v.classList.add(dx<0?'slL':'slR')}},{passive:true});
 })();
+/* ===== обучающие подсказки ===== */
+var TOURK='hostlist_tour_done',tourI=-1,tourSteps=null;
+function tabBtn(t){var L=document.querySelectorAll('.tabs button');for(var i=0;i<L.length;i++){var b=L[i],oc=b.getAttribute('onclick')||'';if(oc.indexOf("'"+t+"'")>-1&&b.offsetParent!==null&&b.getBoundingClientRect().width>0)return b}return null}
+function visEl(sel){if(typeof sel==='function')return sel();var L=document.querySelectorAll(sel);for(var i=0;i<L.length;i++){var r=L[i].getBoundingClientRect();if(r.width>0&&r.height>0)return L[i]}return null}
+function TSTEPS(){return [
+ {t:'Добро пожаловать в HostList',x:'Короткая экскурсия по главному займёт минуту. Можно пропустить и пройти её позже в «Сервисах».',first:true},
+ {tab:'cal',el:function(){return tabBtn('cal')},t:'Календарь',x:'Главная страница: мероприятия по дням, ближайшие проекты и заметки.'},
+ {tab:'cal',el:'.hero .hs',t:'Сводка',x:'Сколько мероприятий всего, сколько завершено, сколько впереди и на какую сумму.'},
+ {tab:'cal',el:'.tdb',t:'Кнопка «Сегодня»',x:'Пролистала месяцы вперёд? Одно касание вернёт к сегодняшнему дню.'},
+ {tab:'cal',el:'.cal',t:'Дни мероприятий',x:'Точка под датой — мероприятие, цвет показывает его тип. Кольцо — срок «отправить всё до». Нажми на день, чтобы увидеть его мероприятия.'},
+ {tab:'projects',el:'.npr .btn',t:'Новое мероприятие',x:'Имена, дата, время, место, тип и гонорар. Задачи и чек-лист отправки по типу мероприятия создадутся сами.'},
+ {tab:'projects',el:'.pseg',t:'Будущие и завершённые',x:'Мероприятия разделены: впереди и уже прошедшие или закрытые.'},
+ {tab:'projects',el:'.pcard',t:'Карточка мероприятия',x:'Нажми, чтобы открыть: отправка, оплаты, расходы, задачи и сборы. Смахни влево, чтобы удалить.'},
+ {tab:'sends',el:function(){return tabBtn('sends')},t:'Отправка',x:'Что осталось отправить клиентам и подрядчикам по каждому мероприятию: договор, анкета, сценарий, тайминг.'},
+ {tab:'budget',el:function(){return tabBtn('budget')},t:'Бюджет',x:'Доходы и расходы, налог, агентская комиссия и твой прайс-лист.'},
+ {tab:'replies',el:function(){return tabBtn('replies')},t:'Готовые ответы',x:'Сообщения клиентам в одно касание: имена, даты и суммы подставляются сами.'},
+ {tab:'services',el:function(){return tabBtn('services')},t:'Сервисы',x:'Статистика, заметки, темы оформления, резервная копия и код-пароль.'},
+ {tab:'services',el:'.svt.pill',t:'Резервная копия',x:'Данные хранятся только на этом устройстве. Сохраняй копию в файл раз в неделю.'},
+ {swipe:true,t:'Свайпы',x:'Листай вкладки свайпом влево и вправо по экрану, как в обычных приложениях.'},
+ {t:'Готово!',x:'Ярких мероприятий 🎤 Обучение всегда можно пройти снова: «Сервисы» → «Обучение».',last:true}
+]}
+function startTour(manual){tourSteps=TSTEPS();tourI=0;var T=document.getElementById('tour');if(!T){T=document.createElement('div');T.id='tour';document.body.appendChild(T)}
+  T.className='show';document.documentElement.classList.add('touring');showStep()}
+function endTour(){try{localStorage.setItem(TOURK,'1')}catch(e){}var T=document.getElementById('tour');if(T){T.className='';T.innerHTML=''}document.documentElement.classList.remove('touring');tourI=-1;setTab('cal')}
+function tourGo(d){tourI+=d;if(tourI<0)tourI=0;if(tourI>=tourSteps.length){endTour();return}showStep(d)}
+function showStep(dir){var st=tourSteps[tourI],T=document.getElementById('tour');if(!T)return;
+  if(st.tab&&tab!==st.tab){openId=null;showForm=false;setTab(st.tab)}
+  var el=st.el?visEl(st.el):null;
+  if(st.el&&!el){tourGo(dir||1);return}
+  if(el){var r0=el.getBoundingClientRect();if(r0.top<70||r0.bottom>window.innerHeight-110)el.scrollIntoView({block:'center'})}
+  setTimeout(function(){drawStep(st,el)},el?220:0)}
+function drawStep(st,el){var T=document.getElementById('tour');if(!T||tourI<0)return;
+  var W=window.innerWidth,H=window.innerHeight,n=tourSteps.length,pad=8,r=null;
+  if(el){var b=el.getBoundingClientRect();r={x:Math.max(4,b.left-pad),y:Math.max(4,b.top-pad),w:Math.min(W-8,b.width+pad*2),h:b.height+pad*2}}
+  var panes='';
+  if(r){panes='<i class="tp" style="left:0;top:0;width:100%;height:'+r.y+'px"></i><i class="tp" style="left:0;top:'+(r.y+r.h)+'px;width:100%;bottom:0"></i><i class="tp" style="left:0;top:'+r.y+'px;width:'+r.x+'px;height:'+r.h+'px"></i><i class="tp" style="left:'+(r.x+r.w)+'px;top:'+r.y+'px;right:0;height:'+r.h+'px"></i><i class="tring" style="left:'+r.x+'px;top:'+r.y+'px;width:'+r.w+'px;height:'+r.h+'px"></i>'}
+  else panes='<i class="tp" style="inset:0"></i>';
+  var dots='';for(var i=1;i<n-1;i++)dots+='<b class="'+(i===tourI?'on':'')+'"></b>';
+  var btns=st.first?'<button class="tsk" onclick="endTour()">Пропустить</button><button class="tnx" onclick="tourGo(1)">Начать</button>'
+    :st.last?'<button class="tsk" onclick="tourGo(-1)">Назад</button><button class="tnx" onclick="endTour()">Завершить</button>'
+    :'<button class="tsk" onclick="endTour()">Пропустить</button><span class="tbk"><button class="tsk" onclick="tourGo(-1)">‹</button><button class="tnx" onclick="tourGo(1)">Далее</button></span>';
+  var card='<div class="tcard'+(r?'':' mid')+'" id="tcard">'+(st.swipe?'<div class="tsw"><span>←</span><i></i><span>→</span></div>':'')+(st.first||st.last?'<div class="tlogo">HL</div>':'')
+   +'<div class="tt">'+esc(st.t)+'</div><div class="tx">'+esc(st.x)+'</div>'+(st.first||st.last?'':'<div class="tdots">'+dots+'</div>')+'<div class="tbtn">'+btns+'</div></div>';
+  T.innerHTML=panes+card;
+  var c=document.getElementById('tcard');
+  if(r){var ch=c.offsetHeight,cw=Math.min(W-24,340),below=r.y+r.h+12,above=r.y-12-ch;
+    var top=(below+ch<H-12)?below:(above>12?above:Math.max(12,H-ch-12));
+    var left=Math.min(Math.max(12,r.x+r.w/2-cw/2),W-cw-12);
+    c.style.width=cw+'px';c.style.left=left+'px';c.style.top=top+'px';
+    var ax=Math.min(Math.max(18,r.x+r.w/2-left),cw-18);c.style.setProperty('--ax',ax+'px');c.classList.add(top>=below?'down':'up')}}
+window.addEventListener('resize',function(){if(tourI>=0)showStep(0)});
+function maybeTour(){var done=false;try{done=!!localStorage.getItem(TOURK)}catch(e){}if(done||S.projects.length)return;
+  var wait=function(){if(document.querySelector('#lock.show')){setTimeout(wait,600);return}startTour(false)};setTimeout(wait,700)}
+maybeTour();
 /* запрет масштабирования жестами и двойным касанием (iOS) */
 ['gesturestart','gesturechange','gestureend'].forEach(function(ev){document.addEventListener(ev,function(e){e.preventDefault()},{passive:false})});
 document.addEventListener('touchmove',function(e){if(e.touches&&e.touches.length>1)e.preventDefault()},{passive:false});
